@@ -9,9 +9,28 @@
 <body>
     <div class="panel">
         <h1><span id="time"></span></h1>
-        <p class="sub">The weather right now is..</p>
+        <p class="sub">The weather right now in..</p>
+        <div id="weather-info" class="animate__animated animate__fadeIn">
+            <h2 id="city-name"></h2>
+            <!-- <img id="weather-icon" src="" alt="Weather Icon"> -->
+            <p class="sub" id="temperature"></p>
+            <p class="sub" id="description"></p>
+            <p class="sub" id="wind-speed"></p>
+            <p class="sub" id="humidity"></p>
+            <p class="sub" id="date"></p>
+        </div>
         <button class="cta">Get started</button>
     </div>
 </body>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/weather.js"></script>
 <script src="js/time.js"></script>
+<script>
+    // JavaScript logic here
+    $('#city-input-btn').on('click', function() {
+        let cityName = $('#city-input').val();
+        weatherFn(cityName);
+    });
+</script>
 </html>
