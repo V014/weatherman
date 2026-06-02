@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weatherman - Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#6bfb9a",
+                        "inverse-primary": "#006d36",
+                        "secondary-fixed": "#ffdf9f",
+                        "tertiary-fixed": "#ffdad7",
+                        "background": "#131313",
+                        "surface-tint": "#4de082",
+                        "on-error": "#690005",
+                        "secondary": "#ffc640",
+                        "on-tertiary": "#68000a",
+                        "outline": "#869486",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#6dfe9c",
+                        "tertiary": "#ffd7d3",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "error": "#ffb4ab",
+                        "surface-container": "#201f1f",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "on-secondary-container": "#5a4100",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353534",
+                        "on-primary": "#003919",
+                        "outline-variant": "#3d4a3e",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-fixed": "#261a00",
+                        "on-primary-container": "#005e2d",
+                        "on-tertiary-container": "#a50318",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-primary-fixed": "#00210c",
+                        "surface": "#131313",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#402d00",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-container": "#ffb0aa",
+                        "primary-fixed-dim": "#4de082",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "secondary-container": "#e3aa00",
+                        "primary-container": "#4ade80",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#3a3939",
+                        "on-surface-variant": "#bccabb",
+                        "on-primary-fixed-variant": "#005227"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "container-max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Libre Caslon Text"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "title-md": ["Manrope"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0D0D0D;
+            background-image: radial-gradient(#262626 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .condition-strip-green { border-left: 4px solid #4ADE80; }
+        .condition-strip-amber { border-left: 4px solid #ffc640; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary" data-icon="grid_view">grid_view</span>
+<h1 class="font-display-lg text-headline-lg-mobile font-bold text-primary dark:text-primary-fixed-dim">Weatherman</h1>
+</div>
+<div class="px-4 py-1 rounded-full border border-outline-variant text-primary font-label-sm">
+            Field 01
+        </div>
+</header>
+<main class="pt-24 pb-32 px-margin-mobile max-w-container-max-width mx-auto">
+<!-- Profile Header Section -->
+<section class="mb-10">
+<div class="flex flex-col md:flex-row items-center gap-6 p-6 bg-surface-container rounded-xl border border-outline-variant">
+<div class="relative">
+<img alt="User Profile" class="w-24 h-24 rounded-full object-cover border-2 border-primary" data-alt="A portrait of a rugged, professional middle-aged farmer with a weathered but kind face, wearing a dark canvas work shirt. The lighting is low-key and dramatic, casting soft shadows that highlight texture. The background is a dark, tech-infused agricultural command center with muted green neon accents, maintaining a high-contrast modern aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj8H6H-SzMGns6JKTfF8N4uj-9XLYU0bBGh-DqFxdi__pnVfwuEfVFxg11YBqNDBWhhC5PvDC_-N3FgNgy8-CsJbgQ1gFtvXEof3G3to9F67xk-bEtlIF8KEy02mztFM62bxWmWG7PkU6GjAOC1jCkb_DnOrHC7ZX1dYU1qmItVVnBGy4wfxODEv8um_yagzT0TAonbrSqjVLmIeGhAxk--EXxPaGav_ZZj6uV3gSp7XOsAnmk8DcoL0P6AgYV7iOh2b6hfq2jxpVB"/>
+<div class="absolute bottom-0 right-0 bg-primary p-1 rounded-full shadow-lg">
+<span class="material-symbols-outlined text-background text-sm" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<div class="text-center md:text-left flex-1">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface font-bold">Arthur Vance</h2>
+<p class="text-on-surface-variant font-body-md opacity-80">Principal Operator • Vance Ridge Farms</p>
+<div class="mt-3 flex flex-wrap justify-center md:justify-start gap-2">
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-label-sm text-primary border border-outline-variant">Active Subscription</span>
+<span class="px-3 py-1 bg-surface-container-highest rounded-full text-label-sm text-secondary border border-outline-variant">Precision Tier</span>
+</div>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary font-bold px-6 py-3 rounded-lg hover:opacity-90 transition-opacity active:scale-95 duration-150">
+                    Edit Profile
+                </button>
+</div>
+</section>
+<!-- Bento Grid Stats & Info -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Farm Location Card -->
+<div class="md:col-span-8 bg-surface-container rounded-xl border border-outline-variant overflow-hidden flex flex-col">
+<div class="p-6 border-b border-outline-variant flex justify-between items-center">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
+                            Farm Location
+                        </h3>
+<p class="text-on-surface-variant text-label-sm mt-1">Napa Valley • Region 4A</p>
+</div>
+<button class="text-primary text-label-sm hover:underline">Manage Map</button>
+</div>
+<div class="h-64 relative bg-surface-container-low">
+<img alt="Farm Map View" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-500" data-alt="A top-down satellite view of sprawling agricultural fields divided into clean geometric sections. The image has a dark, high-contrast overlay with subtle glowing emerald green data lines highlighting boundaries. The aesthetic is tech-focused and precise, evoking a feeling of professional surveillance and data-driven farming." data-location="Napa Valley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9DOe_WDR727ceVEaDgzOdoyH_MzDa2lRy7G03NPOKthy-GZK7ah8TTJ-xYun-vTTrDTSthvjxgUOW2UrwhSxLakv5py3IpFGLGFzij5tZ-NbjjBWyK9hXzhFcFrt83wn8au-fYhKAYeI003ZwZ8pjdfSTbc-T6fxymg5_4MISKc521_A280BF6ZkC16oQ4uZq2XwzUUSmUnF5-eZQ7-ugX9vYFBo-HEyTE6s3Yx5Y-qZJ4EBVv2bxDJThsA6krtDMEjE7RTHJuKxI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
+<div class="absolute bottom-4 left-4 flex gap-2">
+<div class="bg-background/90 backdrop-blur px-3 py-2 rounded border border-outline-variant">
+<span class="text-primary block text-[10px] font-bold uppercase tracking-widest">Longitude</span>
+<span class="text-on-surface text-sm">122.3011° W</span>
+</div>
+<div class="bg-background/90 backdrop-blur px-3 py-2 rounded border border-outline-variant">
+<span class="text-primary block text-[10px] font-bold uppercase tracking-widest">Latitude</span>
+<span class="text-on-surface text-sm">38.2975° N</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Livestock Summary Card -->
+<div class="md:col-span-4 bg-surface-container rounded-xl border border-outline-variant p-6 flex flex-col justify-between condition-strip-green">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="pets">pets</span>
+                        Livestock
+                    </h3>
+<p class="text-on-surface-variant text-label-sm mt-1">Real-time telemetry active</p>
+</div>
+<div class="space-y-4 mt-6">
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg border border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="cow">pets</span>
+<span class="text-on-surface font-bold">Cattle</span>
+</div>
+<span class="text-primary font-display-lg text-2xl">482</span>
+</div>
+<div class="flex items-center justify-between p-3 bg-surface-container-low rounded-lg border border-outline-variant">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="cruelty_free">cruelty_free</span>
+<span class="text-on-surface font-bold">Sheep</span>
+</div>
+<span class="text-primary font-display-lg text-2xl">1,240</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant">
+<div class="flex justify-between text-label-sm">
+<span class="text-on-surface-variant">Vitals Check</span>
+<span class="text-primary">All Normal</span>
+</div>
+</div>
+</div>
+<!-- Crop Types Section -->
+<div class="md:col-span-12 bg-surface-container rounded-xl border border-outline-variant p-6">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="agriculture">agriculture</span>
+                            Tracked Crop Types
+                        </h3>
+<p class="text-on-surface-variant text-label-sm mt-1">Monitoring moisture and growth cycles</p>
+</div>
+<button class="bg-surface-container-highest text-on-surface px-4 py-2 rounded-lg text-label-sm border border-outline-variant hover:bg-outline-variant transition-colors">
+                        Add New
+                    </button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Corn -->
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-4 hover:border-primary transition-all group cursor-pointer">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="grass">grass</span>
+</div>
+<div>
+<h4 class="text-on-surface font-bold">Corn</h4>
+<p class="text-on-surface-variant text-label-sm">240 Acres • Harvest in 42d</p>
+</div>
+</div>
+<!-- Wheat -->
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-4 hover:border-primary transition-all group cursor-pointer">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="grain">grain</span>
+</div>
+<div>
+<h4 class="text-on-surface font-bold">Wheat</h4>
+<p class="text-on-surface-variant text-label-sm">180 Acres • Seeding phase</p>
+</div>
+</div>
+<!-- Soybeans -->
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant flex items-center gap-4 hover:border-primary transition-all group cursor-pointer">
+<div class="w-12 h-12 rounded bg-surface-container-highest flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+</div>
+<div>
+<h4 class="text-on-surface font-bold">Soybeans</h4>
+<p class="text-on-surface-variant text-label-sm">120 Acres • Optimal yield</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Notification Settings (Quick Toggle) -->
+<div class="md:col-span-12 lg:col-span-6 bg-surface-container rounded-xl border border-outline-variant p-6">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Security &amp; Alerts</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-highest/30 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="warning">warning</span>
+<div>
+<p class="text-on-surface font-bold">Severe Weather Push</p>
+<p class="text-on-surface-variant text-[10px]">Instant SMS for Hail or Tornado</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-highest/30 rounded-lg">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="mail">mail</span>
+<div>
+<p class="text-on-surface font-bold">Daily Field Report</p>
+<p class="text-on-surface-variant text-[10px]">Emailed at 05:00 AM</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Data Export -->
+<div class="md:col-span-12 lg:col-span-6 bg-surface-container rounded-xl border border-outline-variant p-6 flex flex-col justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface mb-2">Export Records</h3>
+<p class="text-on-surface-variant text-label-sm">Download your field data for compliance and insurance auditing.</p>
+</div>
+<div class="mt-6 flex flex-col gap-2">
+<button class="flex items-center justify-center gap-2 w-full border border-outline-variant text-on-surface py-3 rounded-lg hover:bg-surface-container-highest transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                        Download Annual Report (PDF)
+                    </button>
+<button class="flex items-center justify-center gap-2 w-full border border-outline-variant text-on-surface py-3 rounded-lg hover:bg-surface-container-highest transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="table_chart">table_chart</span>
+                        Telemetry Log (CSV)
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface-container border-t border-outline-variant rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-sm text-label-sm mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="font-label-sm text-label-sm mt-1">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+<span class="font-label-sm text-label-sm mt-1">Payment</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-on-primary-container text-primary rounded-full px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-1">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for cards
+        document.querySelectorAll('.cursor-pointer').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.fontVariationSettings = "'FILL' 1";
+            });
+            card.addEventListener('mouseleave', () => {
+                const icon = card.querySelector('.material-symbols-outlined');
+                if(icon) icon.style.fontVariationSettings = "'FILL' 0";
+            });
+        });
+    </script>
+</body></html>

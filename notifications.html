@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Weatherman | Notification Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:wght@400;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dot-matrix {
+            background-image: radial-gradient(circle, #262626 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-card {
+            background: rgba(23, 23, 23, 0.8);
+            backdrop-filter: blur(12px);
+        }
+        input:checked + .switch-bg {
+            background-color: #6bfb9a;
+        }
+        input:checked + .switch-bg .switch-dot {
+            transform: translateX(20px);
+            background-color: #003919;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#6bfb9a",
+                        "inverse-primary": "#006d36",
+                        "secondary-fixed": "#ffdf9f",
+                        "tertiary-fixed": "#ffdad7",
+                        "background": "#131313",
+                        "surface-tint": "#4de082",
+                        "on-error": "#690005",
+                        "secondary": "#ffc640",
+                        "on-tertiary": "#68000a",
+                        "outline": "#869486",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed": "#6dfe9c",
+                        "tertiary": "#ffd7d3",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "error": "#ffb4ab",
+                        "surface-container": "#201f1f",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "on-secondary-container": "#5a4100",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-container-highest": "#353534",
+                        "on-primary": "#003919",
+                        "outline-variant": "#3d4a3e",
+                        "inverse-on-surface": "#313030",
+                        "on-secondary-fixed": "#261a00",
+                        "on-primary-container": "#005e2d",
+                        "on-tertiary-container": "#a50318",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-primary-fixed": "#00210c",
+                        "surface": "#131313",
+                        "on-background": "#e5e2e1",
+                        "on-secondary": "#402d00",
+                        "on-surface": "#e5e2e1",
+                        "tertiary-container": "#ffb0aa",
+                        "primary-fixed-dim": "#4de082",
+                        "on-tertiary-fixed": "#410004",
+                        "surface-dim": "#131313",
+                        "secondary-fixed-dim": "#f9bd22",
+                        "secondary-container": "#e3aa00",
+                        "primary-container": "#4ade80",
+                        "surface-variant": "#353534",
+                        "surface-bright": "#3a3939",
+                        "on-surface-variant": "#bccabb",
+                        "on-primary-fixed-variant": "#005227"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "48px",
+                        "unit": "8px",
+                        "gutter": "16px",
+                        "margin-mobile": "16px",
+                        "container-max-width": "1200px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Libre Caslon Text"],
+                        "headline-lg": ["Libre Caslon Text"],
+                        "title-md": ["Manrope"],
+                        "headline-lg-mobile": ["Libre Caslon Text"],
+                        "body-md": ["Manrope"],
+                        "label-sm": ["Manrope"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md text-body-md selection:bg-primary selection:text-on-primary antialiased min-h-screen pb-24">
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background border-b border-outline-variant">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:bg-surface-container-highest transition-colors p-2 rounded-full active:scale-95 duration-150">grid_view</button>
+<h1 class="font-display-lg text-headline-lg-mobile font-bold text-primary">Weatherman</h1>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-on-surface-variant px-3 py-1 bg-surface-container rounded-full border border-outline-variant">Field 01</span>
+</div>
+</header>
+<main class="pt-24 px-margin-mobile max-w-container-max-width mx-auto dot-matrix min-h-screen">
+<!-- Hero Section -->
+<section class="mb-10">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Notification Settings</h2>
+<p class="text-on-surface-variant max-w-md">Customize how and when you receive critical weather intelligence for your fields.</p>
+</section>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Delivery Methods (Bento Style) -->
+<div class="md:col-span-8 flex flex-col gap-gutter">
+<div class="glass-card border border-outline-variant rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-highest p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined">sms</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">SMS Alerts</h3>
+<p class="text-label-sm text-on-surface-variant">Instant text notifications for emergency events</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary transition-all switch-bg">
+<div class="absolute top-[2px] left-[2px] bg-on-surface-variant border-none h-5 w-5 rounded-full transition-all switch-dot"></div>
+</div>
+</label>
+</div>
+</div>
+<div class="glass-card border border-outline-variant rounded-xl p-6 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-highest p-3 rounded-lg text-primary">
+<span class="material-symbols-outlined">notifications_active</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Push Notifications</h3>
+<p class="text-label-sm text-on-surface-variant">System alerts delivered to your device app</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary transition-all switch-bg">
+<div class="absolute top-[2px] left-[2px] bg-on-surface-variant border-none h-5 w-5 rounded-full transition-all switch-dot"></div>
+</div>
+</label>
+</div>
+</div>
+<!-- Trigger Toggles -->
+<div class="glass-card border border-outline-variant rounded-xl p-6">
+<h3 class="font-title-md text-title-md text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">warning</span>
+                        Alert Triggers
+                    </h3>
+<div class="space-y-4">
+<!-- Heavy Rain -->
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant">rainy</span>
+<span class="text-on-surface">Heavy Rain</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary transition-all switch-bg">
+<div class="absolute top-[2px] left-[2px] bg-on-surface-variant border-none h-5 w-5 rounded-full transition-all switch-dot"></div>
+</div>
+</label>
+</div>
+<!-- Extreme Heat -->
+<div class="flex justify-between items-center py-3 border-b border-outline-variant/30">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">thermometer_gain</span>
+<span class="text-on-surface">Extreme Heat</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary transition-all switch-bg">
+<div class="absolute top-[2px] left-[2px] bg-on-surface-variant border-none h-5 w-5 rounded-full transition-all switch-dot"></div>
+</div>
+</label>
+</div>
+<!-- Frost Alert -->
+<div class="flex justify-between items-center py-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-blue-400">ac_unit</span>
+<span class="text-on-surface">Frost Risk</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:bg-primary transition-all switch-bg">
+<div class="absolute top-[2px] left-[2px] bg-on-surface-variant border-none h-5 w-5 rounded-full transition-all switch-dot"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<!-- Frequency & Settings Sidebar -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="glass-card border border-outline-variant rounded-xl p-6">
+<h3 class="font-title-md text-title-md text-on-surface mb-6">Delivery Frequency</h3>
+<div class="space-y-3">
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-on-primary-container text-primary border border-primary/20 transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">bolt</span>
+<span class="font-bold">Immediate</span>
+</div>
+<span class="material-symbols-outlined">check_circle</span>
+</button>
+<button class="w-full flex items-center justify-between p-4 rounded-lg bg-surface-container border border-outline-variant text-on-surface-variant hover:bg-surface-container-highest transition-all">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined">feed</span>
+<span>Daily Digest</span>
+</div>
+</button>
+</div>
+<p class="mt-4 text-label-sm text-on-surface-variant leading-relaxed">
+                        Immediate frequency is recommended for all frost and heavy rain triggers to ensure field safety.
+                    </p>
+</div>
+<div class="glass-card border border-outline-variant rounded-xl p-0 overflow-hidden">
+<img alt="Weather Station" class="w-full h-48 object-cover opacity-60" data-alt="A macro shot of a sophisticated meteorological sensor mounted on a carbon fiber pole in the middle of a vast, dark emerald green wheat field at twilight. The lighting is dramatic, with deep blacks in the shadows and a vibrant primary green glow from the sensor's status indicator. The atmosphere is professional, technical, and vigilant, emphasizing the high-end utility of the Weatherman tool." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhuyc8YMGzMA56BY7LyXSgMthoQdbh3Bca0T0kcLE8QszthMc9f-7-2BKgsvdVoHcO-YaFDgIe78WkG6rnYuNsLH4O9PNKJpdqBBkubZHFllC4poFfdDkxjn2Qw3263jUKMTvSx-GrFPDPoQq8TZtMClxGNMF6lL0XuL_Cl9ilF1i6OGRB5wTypw8XnXW04BHQxsNp46_5EWiUMRntMxlj-Ea-fKw5D5A3VCin2Q84aR2AW46nCQQLXGZUoWRZwGQg0Vsmb2-kzdqO"/>
+<div class="p-6">
+<h4 class="font-title-md text-title-md text-on-surface mb-2">Technical Status</h4>
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="text-label-sm text-primary uppercase">Systems Online</span>
+</div>
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-bold active:scale-95 transition-all">
+                            Save Changes
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Shell -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 pb-safe px-4 bg-surface-container border-t border-outline-variant rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-label-sm text-label-sm">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-sm text-label-sm">Alerts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant opacity-60 hover:opacity-100 transition-opacity active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="font-label-sm text-label-sm">Payment</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-on-primary-container text-primary rounded-full px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-sm text-label-sm">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interactions for toggles and frequency selection
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                const parentCard = this.closest('.glass-card');
+                if (this.checked) {
+                    parentCard.classList.add('border-primary/30');
+                } else {
+                    parentCard.classList.remove('border-primary/30');
+                }
+            });
+        });
+
+        // Frequency button selection logic
+        const freqButtons = document.querySelectorAll('.md\\:col-span-4 button');
+        freqButtons.forEach(btn => {
+            if (btn.querySelector('span:last-child').textContent === 'Save Changes') return;
+            btn.addEventListener('click', () => {
+                freqButtons.forEach(b => {
+                    if (b.querySelector('span:last-child').textContent === 'Save Changes') return;
+                    b.classList.remove('bg-on-primary-container', 'text-primary', 'border-primary/20');
+                    b.classList.add('bg-surface-container', 'text-on-surface-variant');
+                    const icon = b.querySelector('.material-symbols-outlined:last-child');
+                    if (icon && icon.textContent === 'check_circle') icon.remove();
+                });
+                btn.classList.add('bg-on-primary-container', 'text-primary', 'border-primary/20');
+                btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+                const check = document.createElement('span');
+                check.className = 'material-symbols-outlined';
+                check.textContent = 'check_circle';
+                btn.appendChild(check);
+            });
+        });
+    </script>
+</body></html>
