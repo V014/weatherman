@@ -1,7 +1,5 @@
-const url =
-	'https://api.openweathermap.org/data/2.5/weather';
+const url = 'https://api.openweathermap.org/data/2.5/weather';
 const apiKey = '42d6dd4ef6aaafcb8c8139016438a3d4';
-	// 'f00c38e0279b7bc85480c3fe775d518c';
 
 $(document).ready(function () {
 	weatherFn('Blantyre');
