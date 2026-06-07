@@ -138,9 +138,11 @@
 <section class="mb-8">
 <div class="bg-error-container/20 border border-error/30 p-4 rounded-xl flex items-start gap-4 animate-pulse">
 <span class="material-symbols-outlined text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
-<div>
-<h3 class="font-title-md text-title-md text-error">Heavy Rain Advisory</h3>
-<p class="text-on-surface-variant text-sm mt-1">Expected 40mm precipitation between 02:00 - 06:00. High flood risk for Lower Meadow.</p>
+<div id="warning-bar">
+    <h3 class="font-title-md text-title-md text-error" id="warning-title"></h3>
+    <p class="text-on-surface-variant text-sm mt-1" id="waring-text"></p>
+    <!-- <h3 class="font-title-md text-title-md text-error" id="warning-title">Heavy Rain Advisory</h3> -->
+    <!-- <p class="text-on-surface-variant text-sm mt-1" id="waring-text">Expected 40mm precipitation between 02:00 - 06:00. High flood risk for Lower Meadow.</p> -->
 </div>
 </div>
 </section>
@@ -158,24 +160,24 @@
 <p class="font-headline-lg text-headline-lg text-on-surface-variant" id="time"></p>
 </div>
 <div class="mt-8 md:mt-0 flex flex-col justify-end items-start md:items-end">
-<div class="grid grid-cols-2 gap-x-8 gap-y-4">
-<div class="flex flex-col">
-<span class="text-on-surface-variant font-label-sm text-xs">WIND</span>
-<span class="text-on-surface font-title-md" id="wind-speed">18 km/h NW</span>
-</div>
-<div class="flex flex-col">
-<span class="text-on-surface-variant font-label-sm text-xs">HUMIDITY</span>
-<span class="text-on-surface font-title-md" id="humidity">84%</span>
-</div>
-<div class="flex flex-col">
-<span class="text-on-surface-variant font-label-sm text-xs">VISIBILITY</span>
-<span class="text-on-surface font-title-md" id="visibility">12 km</span>
-</div>
-<div class="flex flex-col">
-<span class="text-on-surface-variant font-label-sm text-xs">PRESSURE</span>
-<span class="text-on-surface font-title-md" id="pressure">1012 hPa</span>
-</div>
-</div>
+    <div class="grid grid-cols-2 gap-x-8 gap-y-4">
+        <div class="flex flex-col">
+            <span class="text-on-surface-variant font-label-sm text-xs">WIND</span>
+            <span class="text-on-surface font-title-md" id="wind-speed">18 km/h NW</span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-on-surface-variant font-label-sm text-xs">HUMIDITY</span>
+            <span class="text-on-surface font-title-md" id="humidity">84%</span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-on-surface-variant font-label-sm text-xs">VISIBILITY</span>
+            <span class="text-on-surface font-title-md" id="visibility">12 km</span>
+        </div>
+        <div class="flex flex-col">
+            <span class="text-on-surface-variant font-label-sm text-xs">PRESSURE</span>
+            <span class="text-on-surface font-title-md" id="pressure">1012 hPa</span>
+        </div>
+    </div>
 </div>
 </div>
 <!-- Atmospheric Background Image -->
@@ -291,6 +293,7 @@
 <script src="js/moment.js"></script>
 <script src="js/weather.js"></script>
 <script src="js/time.js"></script>
+<script src="js/rss.js"></script>
 <script>
     // Simple micro-interaction for cards
     document.querySelectorAll('.bg-surface-container').forEach(card => {
