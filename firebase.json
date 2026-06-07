@@ -5,13 +5,6 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "redirects": [
-      {
-        "source": "*",
-        "destination": "https://gen-lang-client-0350922828.firebaseapp.com/",
-        "type": 301
-      }
     ]
   }
 }
