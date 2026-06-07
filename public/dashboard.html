@@ -151,28 +151,29 @@
 <div>
 <div class="flex items-center gap-2 text-primary mb-2">
 <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
-<span class="font-label-sm text-label-sm uppercase tracking-widest">Current Location: North Ridge</span>
+<!-- City name -->
+<span class="font-label-sm text-label-sm uppercase tracking-widest sub" id="city-name"></span>
 </div>
-<h2 class="font-display-lg text-6xl md:text-8xl text-on-surface mb-2">14°C</h2>
-<p class="font-headline-lg text-headline-lg text-on-surface-variant">Overcast • Feels like 12°C</p>
+<h2 class="font-display-lg text-6xl md:text-8xl text-on-surface mb-2" id="temperature"></h2>
+<p class="font-headline-lg text-headline-lg text-on-surface-variant" id="time"></p>
 </div>
 <div class="mt-8 md:mt-0 flex flex-col justify-end items-start md:items-end">
 <div class="grid grid-cols-2 gap-x-8 gap-y-4">
 <div class="flex flex-col">
 <span class="text-on-surface-variant font-label-sm text-xs">WIND</span>
-<span class="text-on-surface font-title-md">18 km/h NW</span>
+<span class="text-on-surface font-title-md" id="wind-speed">18 km/h NW</span>
 </div>
 <div class="flex flex-col">
 <span class="text-on-surface-variant font-label-sm text-xs">HUMIDITY</span>
-<span class="text-on-surface font-title-md">84%</span>
+<span class="text-on-surface font-title-md" id="humidity">84%</span>
 </div>
 <div class="flex flex-col">
 <span class="text-on-surface-variant font-label-sm text-xs">VISIBILITY</span>
-<span class="text-on-surface font-title-md">12 km</span>
+<span class="text-on-surface font-title-md" id="visibility">12 km</span>
 </div>
 <div class="flex flex-col">
 <span class="text-on-surface-variant font-label-sm text-xs">PRESSURE</span>
-<span class="text-on-surface font-title-md">1012 hPa</span>
+<span class="text-on-surface font-title-md" id="pressure">1012 hPa</span>
 </div>
 </div>
 </div>
@@ -286,16 +287,27 @@
 <span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
 </button>
 </div>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/weather.js"></script>
+<script src="js/time.js"></script>
 <script>
-        // Simple micro-interaction for cards
-        document.querySelectorAll('.bg-surface-container').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
+    // Simple micro-interaction for cards
+    document.querySelectorAll('.bg-surface-container').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
         });
-    </script>
+    });
+</script>
+<script>
+    // Weather fetching logic
+    $('#city-input-btn').on('click', function() {
+        let cityName = $('#city-input').val();
+        weatherFn(cityName);
+    });
+</script>
 </body></html>

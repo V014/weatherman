@@ -25,12 +25,19 @@ function weatherShowFn(data) {
 	$('#city-name').text(data.name);
 	$('#date').text(moment().
 		format('MMMM Do YYYY, h:mm:ss a'));
+	// temperature rounded off to the nearest whole number
 	$('#temperature').
-		html(`${data.main.temp}°C`);
+		html(`${Math.round(data.main.temp)}°C`);
 	$('#description').
 		text(data.weather[0].description);
 	$('#wind-speed').
 		html(`Wind Speed: ${data.wind.speed} m/s`);
+	$('#humidity').
+		html(`Humidity: ${data.main.humidity}%`);
+	$('#visibility').
+		html(`Visibility: ${data.visibility / 1000} km`);
+	$('#pressure').
+		html(`Pressure: ${data.main.pressure} hPa`);
 	$('#weather-icon').
 		attr('src',
 			`...`);
